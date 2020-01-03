@@ -3,10 +3,8 @@ import { HashRouter as Router, Route, Switch} from 'react-router-dom'
 //PAGES
 import Layout from './pages/layout/Layout'
 import Homepage from './pages/homepage/Homepage'
-// CONTEXT
 
 function App () {
-
 
   return (
           <Router>
