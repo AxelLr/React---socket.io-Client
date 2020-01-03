@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../context/Context'
 
 function Homepage(props) {
 
-    console.log(props)
+    
+    const context = useContext(Context)
+    const { userConnected, userConnectedSocket } = context.State
+    const { Dispatch } = context
 
 const redirect = () => {
+
 
 props.history.push('/Community')
 

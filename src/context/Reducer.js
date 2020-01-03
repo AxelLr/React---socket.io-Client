@@ -33,6 +33,7 @@ function Reducer (state, action) {
             ]
         }
         case USER_DISCONNECTED:
+            console.log('wasaaa')
             return {
                 ...state,
                 userConnected: '',

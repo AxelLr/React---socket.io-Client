@@ -8,10 +8,11 @@ import { CONNECTED_USERS, ADMIN_MESSAGES, USER_DISCONNECTED } from '../../contex
 
 export default function Chat(props) {
     
-    console.log(props)
   const context = useContext(Context)
   const { userConnected, userConnectedSocket } = context.State
   const { Dispatch } = context
+
+  console.log(userConnectedSocket.id)
 
      useEffect(() => {
 
@@ -22,8 +23,11 @@ export default function Chat(props) {
   
           userConnectedSocket.emit('join', newUser)
           return () => {
-           userConnectedSocket.emit('USER_LEAVE');
+           userConnectedSocket.emit('USER_LEAVE')
            Dispatch({ type: USER_DISCONNECTED})
+           userConnectedSocket.off()
+
+          console.log('NANI???')
          };
         }, [userConnectedSocket, userConnected, Dispatch ])
 
