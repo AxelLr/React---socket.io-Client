@@ -13,7 +13,6 @@ function App () {
             <Switch>
               <Route exact path='/' component={Homepage} /> 
               <Route exact path='/Community' component={Layout} /> 
-      
             </Switch> 
           </Router>
   )

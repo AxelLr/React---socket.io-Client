@@ -1,17 +1,36 @@
-import React,{ useState, useContext } from 'react'
-import { SET_USER_CONNECTED } from '../../context/Types'
+import React,{ useState, useContext, useEffect } from 'react'
+import io from 'socket.io-client'
 // CONTEXT
 import { Context } from '../../context/Context'
 // TYPES
+import { SET_USER_CONNECTED, SET_USER_SOCKET } from '../../context/Types'
+
+
+const ENDPOINT = "http://localhost:5000/"
+
 
 function Login() {
 
 const context = useContext(Context)
 const {  userConnectedSocket } = context.State
+const { Dispatch } = context
 
 const [ username, setUsername ] = useState('')
 const [errors, setErrors] = useState('')
 const [isDisabled, setDisabled] = useState(false)
+
+useEffect(() => {
+
+  const initSocket = () => {
+      
+      const socketio = io(ENDPOINT)
+
+      socketio.on('connection', () => { console.log('connected') })
+
+      Dispatch({type: SET_USER_SOCKET, payload: socketio})
+  }  
+initSocket()
+}, [Dispatch])
 
 const handleChange = (e) => {
     setUsername(e.target.value)
