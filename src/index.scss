@@ -1,0 +1,20 @@
+@import './pages/login/Login';
+@import './pages/layout/Layout';
+@import './components/chat/Chat';
+@import './components/chat/messages/Messages';
+@import './components/chat/messages/message/Message';
+@import './components/chat/sendmessage/SendMessage';
+@import './components/chat/connecteduser/UserConnected';
+@import './components/connectedUsers/ConnectedUsers';
+@import './pages/homepage/Homepage';
+
+* {
+ --darkGray: #121212;
+ font-family: 'Tahoma';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}

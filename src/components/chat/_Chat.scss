@@ -1,0 +1,26 @@
+.chat-container {
+    background: #32465A;
+    margin: auto;
+    width: 80%;
+    display: grid;
+    height: 500px;
+    grid-template: {
+        columns: 2fr 4fr;
+        rows: 1fr 6fr 1fr;
+    }
+}
+
+.chat-userlist-container {
+    
+grid-column: 1 / 2;
+  grid-row: 1 / 4;
+}
+
+.chat-title-container {
+display: flex;
+ background: #F5F5F5;
+}
+
+.send-message-container {
+    background: #F5F5F5;
+}

@@ -1,0 +1,23 @@
+.message-content {
+    margin: 0;
+    margin-left: auto;
+    background: white;
+    min-width: 120px;
+    max-width: 400px;
+}
+
+.message-content-u{
+    margin-right: auto;
+    background: #759AC6;
+    min-width: 50px;
+    max-width: 120px;
+}
+
+.user-name {
+    background: transparent;
+    font-family: "tahoma";
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    color: black;
+}
