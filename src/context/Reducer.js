@@ -34,7 +34,7 @@ function Reducer (state, action) {
             ]
         }
         case USER_DISCONNECTED:
-            console.log('wasaaa')
+            // console.log('wasaaa')
             return {
                 ...state,
                 userConnected: '',
@@ -46,7 +46,7 @@ function Reducer (state, action) {
            const findUser = state.privateChats.find(item => item.user === user) 
            if(!findUser) {
             state.privateChats = [ ...state.privateChats, action.payload] 
-            console.log(state.privateChats)
+            // console.log(state.privateChats)
            } else {
             state.privateChats =  state.privateChats.filter(chat => chat.user !== user)
            }
@@ -54,17 +54,22 @@ function Reducer (state, action) {
                ...state
            }}
         case PUSH_NEW_PRIVATE_MESSAGE: {
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
                 ...state,
                 privateMessages : [ ...state.privateMessages, action.payload ]
             }}
-        // case SET_NOTIFICATIONS_AS_READED:
-        //     const { user } = action.payload
-        //     return {
-        //         ...state,
-        //         privateMessages : [ ...state.privateMessages, action.payload ]
-        //     } 
+         case SET_NOTIFICATIONS_AS_READED: {
+
+            for( let i = 0; i < state.privateMessages.length; i++) {
+
+                    if( state.privateMessages[i].readed === false && state.privateMessages[i].sender === action.payload ) {
+                        state.privateMessages[i].readed = true
+                    }
+            }
+             return {
+                 ...state,
+             } }
 
       default: return state
     }

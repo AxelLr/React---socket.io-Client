@@ -9,14 +9,19 @@ export default function PrivateChat(props) {
 
     const context = useContext(Context)
     const { Dispatch } = context
+    const { privateMessages } = context.State
 
     const { user, id } = props.chat
 
     useEffect(() => {
 
+        const { user } = props.chat
+        
+        console.log(user)
+
         Dispatch({type: SET_NOTIFICATIONS_AS_READED, payload: user })
      
-    }, [Dispatch, user])
+    }, [privateMessages, Dispatch, props.chat ])
 
     return (
         <div className='private-chat-container'>

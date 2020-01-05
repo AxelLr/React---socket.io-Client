@@ -8,21 +8,18 @@ export default function ConnectedUsers() {
     const { connectedUsers, userConnected, privateMessages } = context.State
 
     let notifications = '';
-    let notificationsMessages = '';
+
+    const openPrivateChat = (user, id) => {
+    if(userConnected !== user) {
+    context.Dispatch({type: NEW_PRIVATE_CHAT, payload: { user, id } })
+    }
+    }
 
   let usuariosConectados = connectedUsers.filter(user => user.user !== userConnected ).map(
         (user, uid) => { 
 
-            const messages = privateMessages && privateMessages.filter(message => message.sender === user.user)
-            notificationsMessages = messages.filter(message => message.readed === false)
-            notifications =  notificationsMessages ? notificationsMessages.length : '';
-                        
-            const openPrivateChat = (user, id) => {
-                if(userConnected !== user) {
-            context.Dispatch({type: NEW_PRIVATE_CHAT, payload: { user, id } })
-                }
-                notificationsMessages.forEach(message => message.readed = true)
-            }
+            const messages = privateMessages && privateMessages.filter(message => message.sender === user.user && message.readed === false)
+            notifications =  messages ? messages.length : '';
 
        return ( <p onClick={ ()=> openPrivateChat(user.user, user.id)} key={uid}> 
   <span> {user.user} </span> { notifications !== 0 && notifications }  </p>
