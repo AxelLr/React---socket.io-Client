@@ -24,8 +24,6 @@ export default function Chat(props) {
            userConnectedSocket.emit('USER_LEAVE')
            Dispatch({ type: USER_DISCONNECTED})
            userConnectedSocket.off()
-
-          console.log('NANI???')
          };
         }, [userConnectedSocket, userConnected, Dispatch ])
 
@@ -36,7 +34,7 @@ export default function Chat(props) {
                 });
             
                userConnectedSocket.on('NEW_USER', (data) => {
-                   console.log('FALOPA')    
+                    
                  Dispatch({type: ADMIN_MESSAGES, payload: data});
                  })
             
@@ -48,9 +46,9 @@ export default function Chat(props) {
                   Dispatch({type: ADMIN_MESSAGES, payload: data});
                  }) 
 
-                 userConnectedSocket.on('NEW_PRIVATE_MESSAGE', ( { sender, receiver, message, createdAt, id, readed } ) => {
-                  console.log(message)
-                Dispatch({ type: PUSH_NEW_PRIVATE_MESSAGE, payload: { sender, receiver, message, createdAt, id, readed } })
+                 userConnectedSocket.on('NEW_PRIVATE_MESSAGE', ( { sender, receiver, idSender, idReceiver,  message, createdAt, readed } ) => {
+              
+                Dispatch({ type: PUSH_NEW_PRIVATE_MESSAGE, payload: { sender, receiver, idSender, idReceiver,  message, createdAt, readed } })
               });
            }, [userConnectedSocket, Dispatch ])
 

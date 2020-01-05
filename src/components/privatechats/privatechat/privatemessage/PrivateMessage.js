@@ -7,11 +7,12 @@ export default function PrivateMessage(props) {
 
   const context = useContext(Context)
   const { privateMessages } = context.State
-  const { user } = props
+  const { id } = props
+  console.log(privateMessages)
 
     return (
         <ScrollToBottom className='messages-container' >
-              { privateMessages.filter(chat => chat.receiver === user || chat.sender === user).map((chat, uid) => <p key={uid}> {chat.message} </p>) }
+              { privateMessages.filter(chat => chat.idReceiver === id || chat.idSender === id ).map((chat, uid) => <p key={uid}> {chat.message} </p>) }
         </ ScrollToBottom >
     )
 }

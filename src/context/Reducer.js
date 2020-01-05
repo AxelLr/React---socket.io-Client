@@ -1,5 +1,6 @@
 import { SET_USER_CONNECTED, SET_USER_SOCKET, 
-    PUSH_NEW_MESSAGE, CONNECTED_USERS, SET_NOTIFICATIONS_AS_READED, ADMIN_MESSAGES, USER_DISCONNECTED, NEW_PRIVATE_CHAT, PUSH_NEW_PRIVATE_MESSAGE } from './Types'
+    PUSH_NEW_MESSAGE, CONNECTED_USERS, SET_NOTIFICATIONS_AS_READED,
+     ADMIN_MESSAGES, USER_DISCONNECTED, NEW_PRIVATE_CHAT, PUSH_NEW_PRIVATE_MESSAGE, CLOSE_CHAT } from './Types'
 
 function Reducer (state, action) {
     switch(action.type) {
@@ -34,27 +35,28 @@ function Reducer (state, action) {
             ]
         }
         case USER_DISCONNECTED:
-            // console.log('wasaaa')
             return {
                 ...state,
                 userConnected: '',
                 chatGeneral: [],
-                userConnectedSocket: {}
+                userConnectedSocket: {},
+                privateChats: [],
+                privateMessages: []
             }
         case NEW_PRIVATE_CHAT: {
-           const { user } = action.payload
-           const findUser = state.privateChats.find(item => item.user === user) 
+           const { id } = action.payload
+           const findUser = state.privateChats.find(item => item.id === id) 
            if(!findUser) {
             state.privateChats = [ ...state.privateChats, action.payload] 
-            // console.log(state.privateChats)
+          
            } else {
-            state.privateChats =  state.privateChats.filter(chat => chat.user !== user)
+            state.privateChats =  state.privateChats.filter(chat => chat.id !== id)
            }
            return {
                ...state
            }}
         case PUSH_NEW_PRIVATE_MESSAGE: {
-            // console.log(action.payload)
+           
             return {
                 ...state,
                 privateMessages : [ ...state.privateMessages, action.payload ]
@@ -70,7 +72,12 @@ function Reducer (state, action) {
              return {
                  ...state,
              } }
-
+         case CLOSE_CHAT:
+         const { id } = action.payload
+         state.privateChats = state.privateChats.filter(chat => chat.idSender !== id)
+         return {
+            ...state,
+        }
       default: return state
     }
   }

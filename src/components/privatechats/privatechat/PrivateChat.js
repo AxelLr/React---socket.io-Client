@@ -2,7 +2,7 @@ import React,{ useEffect, useContext } from 'react'
 import PrivateMessage from './privatemessage/PrivateMessage'
 import SendPrivateMessage from './sendprivatemessage/SendPrivateMessage'
 import { Context } from '../../../context/Context'
-import { SET_NOTIFICATIONS_AS_READED } from '../../../context/Types'
+import { SET_NOTIFICATIONS_AS_READED, CLOSE_CHAT} from '../../../context/Types'
 
 
 export default function PrivateChat(props) {
@@ -16,17 +16,19 @@ export default function PrivateChat(props) {
     useEffect(() => {
 
         const { user } = props.chat
-        
-        console.log(user)
 
         Dispatch({type: SET_NOTIFICATIONS_AS_READED, payload: user })
      
     }, [privateMessages, Dispatch, props.chat ])
 
+    const deleteChat = () => {  
+        Dispatch({type: CLOSE_CHAT, payload: user, id })
+    }
+
     return (
         <div className='private-chat-container'>
 
-                <h3> { user } </h3>
+                <div> <h3> { user } </h3> <span onClick={deleteChat}> X </span> </div>
 
                 < PrivateMessage user={user} id={id} />
 

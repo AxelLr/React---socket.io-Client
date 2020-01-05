@@ -34,7 +34,7 @@ initSocket()
 
 const handleChange = (e) => {
     setUsername(e.target.value)
-    console.log(username)
+   
 } 
     
 const handleSubmit = (e) => {
