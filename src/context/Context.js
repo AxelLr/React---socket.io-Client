@@ -7,7 +7,9 @@ const initialState = {
   userConnected: '',
   userConnectedSocket: {},
   connectedUsers: [],
-  chatGeneral: []
+  chatGeneral: [],
+  privateChats: [],
+  privateMessages: []
 }
 
 export function State (props) {

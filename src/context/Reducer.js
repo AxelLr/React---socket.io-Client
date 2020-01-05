@@ -1,11 +1,12 @@
-import { SET_USER_CONNECTED, SET_USER_SOCKET, PUSH_NEW_MESSAGE, CONNECTED_USERS, ADMIN_MESSAGES, USER_DISCONNECTED } from './Types'
+import { SET_USER_CONNECTED, SET_USER_SOCKET, 
+    PUSH_NEW_MESSAGE, CONNECTED_USERS, SET_NOTIFICATIONS_AS_READED, ADMIN_MESSAGES, USER_DISCONNECTED, NEW_PRIVATE_CHAT, PUSH_NEW_PRIVATE_MESSAGE } from './Types'
 
 function Reducer (state, action) {
     switch(action.type) {
         case SET_USER_CONNECTED:
             return {
                 ...state,
-                userConnected: action.payload
+                userConnected: action.payload,
         } 
         case SET_USER_SOCKET:
             return {
@@ -40,8 +41,33 @@ function Reducer (state, action) {
                 chatGeneral: [],
                 userConnectedSocket: {}
             }
+        case NEW_PRIVATE_CHAT: {
+           const { user } = action.payload
+           const findUser = state.privateChats.find(item => item.user === user) 
+           if(!findUser) {
+            state.privateChats = [ ...state.privateChats, action.payload] 
+            console.log(state.privateChats)
+           } else {
+            state.privateChats =  state.privateChats.filter(chat => chat.user !== user)
+           }
+           return {
+               ...state
+           }}
+        case PUSH_NEW_PRIVATE_MESSAGE: {
+            console.log(action.payload)
+            return {
+                ...state,
+                privateMessages : [ ...state.privateMessages, action.payload ]
+            }}
+        // case SET_NOTIFICATIONS_AS_READED:
+        //     const { user } = action.payload
+        //     return {
+        //         ...state,
+        //         privateMessages : [ ...state.privateMessages, action.payload ]
+        //     } 
+
       default: return state
     }
   }
 
-export default Reducer
+export default Reducer 

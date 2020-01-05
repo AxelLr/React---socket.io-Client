@@ -12,9 +12,9 @@ export default function Messages() {
   const { Dispatch } = context
  
   useEffect(() => {
-    userConnectedSocket.on('NEW_MESSAGE', ( {user, message} ) => {
+    userConnectedSocket.on('NEW_MESSAGE', ( {user, message, createdAt} ) => {
      
-     Dispatch({ type: PUSH_NEW_MESSAGE, payload: {user, message} })
+     Dispatch({ type: PUSH_NEW_MESSAGE, payload: {user, message, createdAt} })
     });
 
   }, [userConnectedSocket, Dispatch])

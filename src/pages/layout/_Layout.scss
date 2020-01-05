@@ -3,3 +3,13 @@
     background: var(--darkGray);
     display: flex;
 }
+
+.login-chats-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    width: 100%;
+
+}
