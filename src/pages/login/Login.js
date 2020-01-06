@@ -6,9 +6,7 @@ import { Context } from '../../context/Context'
 // TYPES
 import { SET_USER_CONNECTED, SET_USER_SOCKET } from '../../context/Types'
 
-// const ENDPOINT = "https://reactchatapp120.herokuapp.com/"
-
-const ENDPOINT = 'http://localhost:5000/'
+ const ENDPOINT = "https://reactchatapp120.herokuapp.com/"
 
 function Login() {
 
