@@ -1,5 +1,6 @@
 import React,{ useState, useContext } from 'react'
 import { Context } from '../../../context/Context'
+import Send from '@material-ui/icons/Send'
 
 export default function SendMessage() {
 
@@ -21,7 +22,7 @@ const handleSubmit = (e) => {
 
             <form onSubmit={handleSubmit} > 
                 <input maxLength='250' type='text' placeholder='Escribe un mensaje...' onChange={(e) => setMessage(e.target.value)} value={message}  /> 
-                <button type='submit'> Enviar </button>
+                <button type='submit'> < Send style={{color: '#007AFE', background: 'transparent', fontSize: 45 }} /> </button>
             </form>
             
         </div>

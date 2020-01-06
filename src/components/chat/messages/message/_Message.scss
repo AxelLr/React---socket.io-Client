@@ -1,23 +1,66 @@
 .message-content {
-    margin: 0;
-    margin-left: auto;
-    background: white;
-    min-width: 120px;
-    max-width: 400px;
+    margin: 10px 5px 0px auto;
+    background: #4A9DE2;
+    width: 50%;
+    border-radius: 20px; 
+    font-size: 18px;
+    color: white;
+
+
+   .moment-container {
+        display: flex;
+        justify-content: flex-end;
+
+        span {
+            margin: 5px 5px 0px 0px;
+            font-size: 11px;
+        }
+    }
+
+    div {
+        display: flex; 
+    }
+
+    p {
+        white-space: pre-wrap;      
+    }
+    
+
 }
 
 .message-content-u{
-    margin-right: auto;
-    background: #759AC6;
-    min-width: 50px;
-    max-width: 120px;
+    margin: 10px auto 0px 5px;
+    background: #FFFFFF;
+    width: 50%;
+    border-radius: 20px;
+    font-size: 18px;
+
+    .user-moment-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            font-size: 13px;
+            margin: 5px 5px 0px 0px;
+        }
+    }
+
+    div {
+        display: flex;
+    }
+
+    p {
+        margin: 9px;
+        white-space: pre-wrap;   
+       
+    }
 }
 
 .user-name {
+    font-size: 20px;
     background: transparent;
     font-family: "tahoma";
-    border: 1px solid black;
-    border-radius: 20px;
     text-align: center;
-    color: black;
+    color: green;
 }

@@ -8,8 +8,8 @@ export default function PrivateChats() {
     const { privateChats } = context.State
 
     return (
-        <div> 
-            { privateChats.map((chat, uid) => <PrivateChat key={uid} chat={chat} />) }
+        <div className='PrivateChats-grid'> 
+            {privateChats.map((chat, uid) => <PrivateChat key={uid} chat={chat} />) }
         </div>
     )
 }

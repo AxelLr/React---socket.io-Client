@@ -1,6 +1,9 @@
 import React,{ useContext } from 'react'
 import { Context } from '../../../context/Context'
 import { USER_DISCONNECTED } from '../../../context/Types'
+import WifiOff from '@material-ui/icons/WifiOff'
+import ToolTip from '@material-ui/core/Tooltip'
+import IconButton from '@material-ui/core/IconButton'
 
 export default function UserConnected(props) {
 
@@ -15,8 +18,12 @@ const logOut =  () => {
 }
     return (
         <div className='user-connected-container'>
-            <h4>{userConnected}</h4>
-            <button onClick={logOut}> Desconectarse </button>
+            <h2>{userConnected}</h2>
+            <ToolTip title="Desconectarse" placement="left" > 
+                <IconButton onClick={logOut}>  
+                     < WifiOff style={{color: '#800000', margin: 5}} />  
+                </IconButton> 
+             </ToolTip>
         </div>
     )
 }

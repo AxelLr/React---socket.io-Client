@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../../context/Context'
 import { NEW_PRIVATE_CHAT } from '../../context/Types'
+import People from '@material-ui/icons/People'
 
 export default function ConnectedUsers() {
 
@@ -22,13 +23,13 @@ export default function ConnectedUsers() {
             notifications =  messages ? messages.length : '';
 
        return ( <p onClick={ ()=> openPrivateChat(user.user, user.id)} key={uid}> 
-  <span> {user.user} </span> { notifications !== 0 && notifications }  </p>
+  <span> {user.user} </span > { notifications !== 0 && <span className='notifications'> {notifications} </span> }  </p>
    ) 
 })
 
     return (
         <div className='connected-users-container'>
-            <h2> Usuarios Conectados: </h2>
+            <h2> < People style={{marginTop: 8, fontSize: 70}} /> </h2>
              { usuariosConectados }
         </div>
     )

@@ -1,29 +1,27 @@
 .sendMessage-container {
     display: flex;
     height: 100%;
+    background: white;
 
     form {
         width: 100%;
         display: flex;
         align-items: center;
         height: 100%;
+        background: white;
 
         button{
+            background: white;
             margin: 0;
             font-size: 18px;
             text-decoration: none;
             color: white;
-            background: #007AFE;
             cursor: pointer;
             outline: none;
             border: none;
             transition: .3s;
             height: 100%;
-           
-
-                &:hover {
-                        background: #003e80;
-            }
+            
         }
 
         input {
@@ -31,7 +29,7 @@
             height: 90%;
             border: none;
             outline: none;
-            font-size: 20px;
+            font-size: 16px;
             width: 100%;
             overflow: auto;
         }

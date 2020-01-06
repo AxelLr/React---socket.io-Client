@@ -74,7 +74,7 @@ function Reducer (state, action) {
              } }
          case CLOSE_CHAT:
          const { id } = action.payload
-         state.privateChats = state.privateChats.filter(chat => chat.idSender !== id)
+         state.privateChats = state.privateChats.filter(chat => chat.id !== id)
          return {
             ...state,
         }

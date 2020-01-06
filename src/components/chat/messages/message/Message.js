@@ -11,11 +11,13 @@ const Message = (props) => {
 
  const { user, message, createdAt } = props.message
 
+ const { sender } = props.message
+
  console.log(props.message)
 
   let isSentByCurrentUser = false;
 
-  if(user === userConnected) {
+  if(user === userConnected || sender === userConnected ) {
     isSentByCurrentUser = true
   } 
 
@@ -23,20 +25,25 @@ const Message = (props) => {
     isSentByCurrentUser
     ? (
       <div className='message-content' >
-        <p className="user-name"  >{userConnected}</p>
-        <span> { Moment(createdAt).startOf('second').fromNow() } </span>
-        <div >
-          <p >{ReactEmoji.emojify(message)}</p>
+        
+        <div className='moment-container' >
+          <span> { Moment(createdAt).startOf('second').format('LT') } </span> 
         </div>
+       <div> 
+        <p >{ReactEmoji.emojify(message)}</p>
+        </div>
+    
       </div>
       )
       : (
         <div className='message-content-u' >
-          <div >
-          <p className="user-name" >{user}</p>
-          <span> { Moment(createdAt).startOf('second').fromNow() } </span>
+          <div className='user-moment-container' >
+             <p className="user-name" >{user}</p>
+            <span> { Moment(createdAt).startOf('second').format('LT') } </span>
           </div>
-          <p >{ReactEmoji.emojify(message)}</p>
+          <div>
+             <p >{ReactEmoji.emojify(message)}</p>
+          </div>
         </div>
       )
   );

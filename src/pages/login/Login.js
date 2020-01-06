@@ -1,13 +1,14 @@
 import React,{ useState, useContext, useEffect } from 'react'
 import io from 'socket.io-client'
+import CircularProgress from '@material-ui/core/CircularProgress'
 // CONTEXT
 import { Context } from '../../context/Context'
 // TYPES
 import { SET_USER_CONNECTED, SET_USER_SOCKET } from '../../context/Types'
 
+// const ENDPOINT = "https://reactchatapp120.herokuapp.com/"
 
-const ENDPOINT = "http://localhost:5000/"
-
+const ENDPOINT = 'http://localhost:5000/'
 
 function Login() {
 
@@ -58,11 +59,11 @@ const setUser = ( { isUser } ) => {
         <div className='login-container'>
            
            <div>
-           <h3>Debes conectarte para poder Ingresar al Chat</h3>
+           <h3>Debes conectarte para poder Ingresar a la sala</h3>
                 <form onSubmit={handleSubmit} > 
-                <input minLength='4' maxLength='15' required  type='text' placeholder='Ingresa tu nombre' onChange={handleChange} value={username}  /> 
+                <input minLength='4' maxLength='15' required  type='text' placeholder='Ingresa tu nombre...' onChange={handleChange} value={username}  /> 
                 { errors && <p> {errors} </p> }
-                <button disabled={isDisabled} type='submit'> Ingresar {isDisabled && <p> loading .... </p>} </button>
+                <button disabled={isDisabled} type='submit'> <span >Ingresar </span> <span>{isDisabled &&  < CircularProgress style={{background: 'transparent', margin: 5}} size={20} /> }</span> </button>
                 </form>
             </div> 
 

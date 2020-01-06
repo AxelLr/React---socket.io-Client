@@ -16,8 +16,8 @@ const Layout = (props) => {
          {!userConnected ? <Login /> : 
          
           <div className='login-chats-container'> 
-            <div> < Chat history={props.history} />  </div> 
-            <div>  <PrivateChats /> </div> 
+            <div className='layout-chat-container'> < Chat history={props.history} />  </div> 
+            <div className='layout-PrivateChats-container'>  <PrivateChats /> </div> 
           </div>}
             
         </div>

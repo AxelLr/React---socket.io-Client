@@ -1,9 +1,7 @@
 .chat-container {
-    background: #32465A;
     margin: auto;
-    width: 80%;
     display: grid;
-    height: 500px;
+    height: 100%;
     grid-template: {
         columns: 2fr 4fr;
         rows: 1fr 6fr 1fr;

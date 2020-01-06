@@ -1,6 +1,7 @@
 .private-chat-container {
     display: flex;
     flex-direction: column;
-    height: 300px;
-    background: blue;
+    height: 342px;
+    width: 100% ;
+    overflow-y: auto;
 }
