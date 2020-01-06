@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React---socket.io-Client/static/css/main.f4c62d28.chunk.css",
+    "main.js": "/React---socket.io-Client/static/js/main.228c336a.chunk.js",
+    "main.js.map": "/React---socket.io-Client/static/js/main.228c336a.chunk.js.map",
+    "runtime-main.js": "/React---socket.io-Client/static/js/runtime-main.d20a6bda.js",
+    "runtime-main.js.map": "/React---socket.io-Client/static/js/runtime-main.d20a6bda.js.map",
+    "static/js/2.7176a12d.chunk.js": "/React---socket.io-Client/static/js/2.7176a12d.chunk.js",
+    "static/js/2.7176a12d.chunk.js.map": "/React---socket.io-Client/static/js/2.7176a12d.chunk.js.map",
+    "index.html": "/React---socket.io-Client/index.html",
+    "precache-manifest.faca6ab22172c9279601eac06e1ebcd4.js": "/React---socket.io-Client/precache-manifest.faca6ab22172c9279601eac06e1ebcd4.js",
+    "service-worker.js": "/React---socket.io-Client/service-worker.js",
+    "static/css/main.f4c62d28.chunk.css.map": "/React---socket.io-Client/static/css/main.f4c62d28.chunk.css.map",
+    "static/js/2.7176a12d.chunk.js.LICENSE": "/React---socket.io-Client/static/js/2.7176a12d.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d20a6bda.js",
+    "static/js/2.7176a12d.chunk.js",
+    "static/css/main.f4c62d28.chunk.css",
+    "static/js/main.228c336a.chunk.js"
+  ]
+}
